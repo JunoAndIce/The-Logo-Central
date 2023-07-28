@@ -50,38 +50,42 @@ const questions = [
 function init() {
   inquirer.prompt(questions)
   .then(function(answers){
+    console.log(answers);
     createObject(answers);
   });
 };
 
 function createObject(data) {
   const fileName =`${data.shape}.svg`
-  let {newLogo} = {};
+  let newLogo;
 
   if (data.shape === 'Square'){
     newLogo = new Square
     (
       data.text,
-      data.sColor,
-      data.tColor
+      data.shapeColor,
+      data.textColor
     )
   }  else if (data.shape === 'Circle') {
     newLogo = new Circle
     (
       data.text,
-      data.sColor,
-      data.tColor
+      data.shapeColor,
+      data.textColor
     )
   } else if (data.shape === 'Triangle') {
     newLogo = new Triangle
     (
       data.text,
-      data.sColor,
-      data.tColor
+      data.shapeColor,
+      data.textColor
     )
   }
-  
-  writeToFile(fileName, newLogo);
+  console.log(newLogo);
+  if (newLogo.validateColor(data.shapeColor)==='false' || newLogo.validateColor(data.textColor)==='false'){
+    throw new Error(`One of ${data.shapeColor} or ${data.textColor} is not a real color.`);
+  }
+  // writeToFile(fileName, newLogo);
 }
 
   // Create a function to write SVG file
