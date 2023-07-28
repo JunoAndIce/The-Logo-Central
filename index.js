@@ -6,6 +6,7 @@ const inquirer = require('inquirer');
 const maxLength = require('inquirer-maxlength-input-prompt')
 
 const fs = require('fs');
+const generateSVG = require('./lib/generateSVG');
 
 // Shape Objects 
 const Square = require('./lib/square');
@@ -55,49 +56,43 @@ function init() {
 
 function createObject(data) {
   const fileName =`${data.shape}.svg`
+  let {newLogo} = {};
+
   if (data.shape === 'Square'){
-    const newLogo = new Square
+    newLogo = new Square
     (
-      'rect x="10" y="10" width="30" height="30"',
       data.text,
       data.sColor,
       data.tColor
     )
-    writeToFile(fileName, newLogo)
-  } else if (data.shape === 'Circle') {
-    const newLogo = new Circle
+  }  else if (data.shape === 'Circle') {
+    newLogo = new Circle
     (
-      'circle cx="25" cy="75" r="20"',
       data.text,
       data.sColor,
       data.tColor
     )
-    writeToFile(fileName, newLogo)
   } else if (data.shape === 'Triangle') {
-    const newLogo = new Triangle
+    newLogo = new Triangle
     (
-      'polygon points="250,60 100,400 400,400"',
       data.text,
       data.sColor,
       data.tColor
     )
-    writeToFile(fileName, newLogo)
   }
   
+  writeToFile(fileName, newLogo);
 }
 
   // Create a function to write SVG file
   function writeToFile(fileName, data) {
-    
-    console.log(`Your ${fileName}.svg is ready!`)
-
-    // fs.writeFile(fileName, generateSVG(data), error => {
-    //   if(error) {
-    //     return console.log(error);
-    //   } else{
-    //     console.log(`Your ${data.shape}.svg is ready!`)
-    //   }
-    // });
+    fs.writeFile(fileName, generateSVG(data), error => {
+      if(error) {
+        return console.log(error);
+      } else{
+        console.log(`Your ${fileName} is ready!`);
+      }
+    });
   };
 
 // Function call to initialize app
