@@ -20,9 +20,12 @@ The Logo Central is a NodeJS powered logo generator that creates an SVG file of 
   
 Install NodeJs, and NPM. Then install two npm  packages: npm i inquirer, npm i validate-color, npm i jest.
 
-## Usage
+## Technologies
   
-NodeJS, NPM Inquirer, NPM Validate Color, NPM Jest
+- NodeJS
+- NPM Inquirer
+- NPM Validate Color
+- NPM Jest
   
 ## Usage
   

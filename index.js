@@ -30,74 +30,78 @@ const questions = [
     type: 'input',
     name: 'textColor',
     message: 'Enter a color for your text (Keyword or Hexadecimal):'
-    
+
   },
   {
     type: 'rawlist',
     name: 'shape',
     message: 'Choose a shape for your logo:',
     choices: ['Square', 'Circle', 'Triangle']
-  },  
+  },
   {
     type: 'input',
     name: 'shapeColor',
     message: 'Enter a color for your shape (Keyword or Hexadecimal):'
-    
-  },  
+
+  },
 ];
 
 // Create a function to initialize app
 function init() {
   inquirer.prompt(questions)
-  .then(function(answers){
-    console.log(answers);
-    createObject(answers);
-  });
+    .then(function (answers) {
+      console.log(answers);
+      createObject(answers);
+    });
 };
 
 function createObject(data) {
-  const fileName =`${data.shape}.svg`
+  const fileName = `${data.shape}.svg`
   let newLogo;
 
-  if (data.shape === 'Square'){
+  if (data.shape === 'Square') {
     newLogo = new Square
-    (
-      data.text,
-      data.shapeColor,
-      data.textColor
-    )
-  }  else if (data.shape === 'Circle') {
+      (
+        data.text,
+        data.shapeColor,
+        data.textColor
+      )
+  } else if (data.shape === 'Circle') {
     newLogo = new Circle
-    (
-      data.text,
-      data.shapeColor,
-      data.textColor
-    )
+      (
+        data.text,
+        data.shapeColor,
+        data.textColor
+      )
   } else if (data.shape === 'Triangle') {
     newLogo = new Triangle
-    (
-      data.text,
-      data.shapeColor,
-      data.textColor
-    )
+      (
+        data.text,
+        data.shapeColor,
+        data.textColor
+      )
   }
-  console.log(newLogo);
-  if (newLogo.validateColor(data.shapeColor)==='false' || newLogo.validateColor(data.textColor)==='false'){
+  // console.log(newLogo);
+
+  if (newLogo.validateColor(data.shapeColor) === 'false' || newLogo.validateColor(data.textColor) === 'false') {
     throw new Error(`One of ${data.shapeColor} or ${data.textColor} is not a real color.`);
   }
-  // writeToFile(fileName, newLogo);
+  else {
+    writeToFile(fileName, newLogo);
+  };
+
 }
 
-  // Create a function to write SVG file
-  function writeToFile(fileName, data) {
-    fs.writeFile(fileName, generateSVG(data), error => {
-      if(error) {
-        return console.log(error);
-      } else{
-        console.log(`Your ${fileName} is ready!`);
-      }
-    });
-  };
+// Create a function to write SVG file
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, generateSVG(data), error => {
+    if (error) {
+      return console.log(error);
+    } else {
+      console.log(`Your ${fileName} is ready!`);
+    }
+  });
+};
 
 // Function call to initialize app
 init();
