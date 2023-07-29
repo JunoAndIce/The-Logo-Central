@@ -9,9 +9,9 @@ const fs = require('fs');
 const generateSVG = require('./lib/generateSVG');
 
 // Shape Objects 
-const Square = require('./lib/square');
-const Circle = require('./lib/circle');
-const Triangle = require('./lib/triangle');
+const Square = require('./lib/shapes/square');
+const Circle = require('./lib/shapes/circle');
+const Triangle = require('./lib/shapes/triangle');
 
 
 // const generateSVG = require('./generateSVG');
