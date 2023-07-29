@@ -9,12 +9,12 @@ The Logo Central is a NodeJS powered logo generator that creates an SVG file of 
   
 ## Table of Contents
   
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [License](#license)
-  - [Contributing](#contributing)
-  - [Media](#media)
-  - [Credits](#credits)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Media](#media)
+- [Credits](#credits)
   
 ## Installation
   
@@ -24,6 +24,7 @@ Install NodeJs, and NPM. Then install two npm  packages: npm i inquirer, npm i v
   
 - NodeJS
 - NPM Inquirer
+- NPM Inquirer Max-Length
 - NPM Validate Color
 - NPM Jest
   
@@ -39,10 +40,13 @@ This project is covered under the MIT license.
   
 N/A
   
- ## Media
-  
+## Media
+
+[![The Logo Central | NodeJS Test](https://imgur.com/kzK8RW7)](https://www.youtube.com/watch?v=IPXAFm2iLvI "NodeJS Test")
+
 ## Credits
+
   Ediubong Ekwere | JunoAndIce
 
-  https://github.com/JunoAndIce | [ekwere.edi@gmail.com](mailto:ekwere.edi@gmail.com)
+  <https://github.com/JunoAndIce> | [ekwere.edi@gmail.com](mailto:ekwere.edi@gmail.com)
   
