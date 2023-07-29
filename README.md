@@ -41,8 +41,8 @@ This project is covered under the MIT license.
 N/A
   
 ## Media
-
-[![The Logo Central | NodeJS Test](https://imgur.com/kzK8RW7)](https://www.youtube.com/watch?v=IPXAFm2iLvI "NodeJS Test")
+![Logo](./lib/assets/screenshots%202.png)\
+[![The Logo Central | NodeJS Test](./lib/assets/screenshots.png)](https://www.youtube.com/watch?v=IPXAFm2iLvI "NodeJS Test")
 
 ## Credits
 
